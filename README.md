@@ -14,9 +14,15 @@ The problem can be phrased and viewed in at least the following ways.
 
 (2) Text similarity. In this category I would put all methods that calculate a similarity or distance score for two texts. The most common ones are Jaccard Similarity (counting overlapping words), Cosine Similarity with TF-IDF or word2vec. This looks like an idea fit for the problem at hand; get a vector representation for each subreddit or post, and then get the most similar subreddits according to the chosen metric. 
 
-(3) Multi-class classification. In a classification setting the goal is to assign new data the most likely category, given observed/labeled data. Here this would mean to assign either each post title, or the collection of all post titles their subreddits as category. During prediction one would either use a new post title (eg. a user input) to classify, or the text of a whole subreddit. The output(s) would be the closest matches in terms of subreddits. 
+(3) Multi-class classification. In a classification setting the goal is to assign new data the most likely category, given observed/labeled data. Here this would mean to assign either each post title, or the collection of all post titles their subreddits as category. During prediction one would either use a new post title (eg. a user input) to classify, or the text of a whole subreddit. The output(s) would be the closest matches in terms of subreddits.
 
-## Model Implementation
+## Model Implementation & Evaluation
 I decided to implement one model of each (2) and (3). 
 
-For (2) I decided for the doc2vec model of gensim (https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/models/doc2vec.py). Le and Mikolov (["Distributed Representations of Sentences and Documents"](http://arxiv.org/pdf/1405.4053v2.pdf)) demonstrated that their technique to calculate document vectors generally outperforms calculating a document vector by adding all word vectors. 
+For (2) I chose the doc2vec model of gensim (https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/models/doc2vec.py). Le and Mikolov (["Distributed Representations of Sentences and Documents"](http://arxiv.org/pdf/1405.4053v2.pdf)) demonstrated that their technique to calculate document vectors generally outperforms calculating a document vector by summing all word vectors. 
+
+
+
+For (3) I picked fastText (https://github.com/facebookresearch/fastText). In the end the models I chose for (2) and (3) are very similar, and it would be a reasonable next step to compare the performance to models based on tf-idf. 
+
+
