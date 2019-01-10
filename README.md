@@ -17,4 +17,6 @@ The problem can be phrased and viewed in at least the following ways.
 (3) Multi-class classification. In a classification setting the goal is to assign new data the most likely category, given observed/labeled data. Here this would mean to assign either each post title, or the collection of all post titles their subreddits as category. During prediction one would either use a new post title (eg. a user input) to classify, or the text of a whole subreddit. The output(s) would be the closest matches in terms of subreddits. 
 
 ## Model Implementation
-I decided to evaluate (2) and (3). 
+I decided to implement one model of each (2) and (3). 
+
+For (2) I decided for the doc2vec model of gensim (https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/models/doc2vec.py). Le and Mikolov (["Distributed Representations of Sentences and Documents"](http://arxiv.org/pdf/1405.4053v2.pdf)) demonstrated that their technique to calculate document vectors generally outperforms calculating a document vector by adding all word vectors. 
