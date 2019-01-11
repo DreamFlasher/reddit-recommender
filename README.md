@@ -25,4 +25,12 @@ More details, including the possibility to actually query the models can be foun
 
 For (3) I picked fastText (https://github.com/facebookresearch/fastText). In the end the models I chose for (2) and (3) are very similar, and it would be a reasonable next step to compare the performance to models based on tf-idf. 
 
+This model is inherently suitable for string-based queries, as it classifies each sentence (post title). Use the following command to train on the fasttext formatted files from the preprocessing notebook:
 
+`./fasttext supervised -input imgposts_fasttext.train -output model_imgposts_fasttext -epoch 25 -wordNgrams 4 -loss hs` 
+
+The `hs` loss is the hierarchical sampling loss, which speeds up training considerably when there are many classes. And the following for evaluation:
+
+`./fasttext test model_imgposts_fasttext.bin imgposts_fasttext.valid`
+
+This achieves a precision and recall of about 30%. 
