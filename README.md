@@ -33,4 +33,8 @@ The `hs` loss is the hierarchical sampling loss, which speeds up training consid
 
 `./fasttext test model_imgposts_fasttext.bin imgposts_fasttext.valid`
 
-This achieves a precision and recall of about 30%. 
+This achieves a precision and recall of about 30%. In order to query the model with a string, create a text file with the query and then execute the following command:
+
+`echo "sonic screwdriver" >> query.txt`
+`./fasttext predict-prob model_imgposts_fasttext.bin query.txt 5`
+results in a very reasonable: `__label__doctorwho 0.79995 __label__mattsmith 0.181585 __label__DoctorWhumour 0.00714386 __label__BowlofLemons 0.0035089 __label__Staples 0.00225036`
