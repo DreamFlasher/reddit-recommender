@@ -41,7 +41,7 @@ This achieves a precision and recall of about 30%. In order to query the model w
 
 results in a very reasonable: `__label__doctorwho 0.79995 __label__mattsmith 0.181585 __label__DoctorWhumour 0.00714386 __label__BowlofLemons 0.0035089 __label__Staples 0.00225036`
 
-## Future work
+## Future Work
 I demonstrated that the model based on doc2vec is suitable for finding similar subreddits, given a subreddit. If a user desires to query by keywords, the fasttext model is more suitable. In future there should be one model, for the different query possibilities. 
 
 I retrieved all images for the posts (see the preprocessing notebook), and I wanted to run a hierarchical image clustering algorithm based on vgg, to investigate overlaps between subreddits and clusters. This would allow to verify if subreddits are a sufficient indicator of image content. 
@@ -50,4 +50,4 @@ I also retrieved most comments of the posts, but did not continue further invest
 
 Negative subreddits or queries can easily be achieved with doc2vec too, by calculating the vector represenation of the negative/excluding subreddit/query and then subtracting this from the positive subreddit/query and then calculating the most similar vectors (tags) to this results vector. 
 
-In order to answer if the eventual goal of locating similar images is achievable via text similarity, eg. if text is a good proxy for image similarity, I would like to evaluate the image clustering first. If the clusters are randomly distributed over the subreddits, then not. I remain doubtful that this will work well. Overall there are too many open questions to me: What kind of similartiy is desired? How is the similarity measured? I expect a lot of noise in the data, both in the texts and the pictures. Why not use existing object detection algorithms on the images itself?
+In order to answer if the eventual goal of locating similar images is achievable via text similarity, eg. if text is a good proxy for image similarity, I would like to evaluate the image clustering first. If the clusters are randomly distributed over the subreddits, then not. I remain doubtful that this will work well. Overall there are too many open questions to me: What kind of similarity is desired? How is the similarity measured? I expect a lot of noise in the data, both in the texts and the pictures. Why not use existing object detection algorithms on the images itself?
