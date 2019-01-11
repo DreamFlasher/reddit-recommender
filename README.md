@@ -21,7 +21,7 @@ I decided to implement one model of each (2) and (3).
 
 For (2) I chose the doc2vec model of gensim (https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/models/doc2vec.py). Le and Mikolov (["Distributed Representations of Sentences and Documents"](http://arxiv.org/pdf/1405.4053v2.pdf)) demonstrated that their technique to calculate document vectors generally outperforms calculating a document vector by summing all word vectors. 
 
-
+More details, including the possibility to actually query the models can be found here `recommend_subreddits.ipynb`. The evaluation shows that when querying subreddits with a sufficient number of posts (>100 posts in the evaluation data), this method provides the expected results. In order to use it with user-specified query strings, further improvements are necessary, aso shown in the same notebook.
 
 For (3) I picked fastText (https://github.com/facebookresearch/fastText). In the end the models I chose for (2) and (3) are very similar, and it would be a reasonable next step to compare the performance to models based on tf-idf. 
 
